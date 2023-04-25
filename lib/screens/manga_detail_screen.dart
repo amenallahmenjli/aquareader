@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import '../data/manga_detail_page.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 
 // The goal of this class is to get the data and build the page's UI with it
 class MangaDetailScreenBuilder extends StatefulWidget {
@@ -27,14 +26,12 @@ class _MangaDetailScreenBuilderState extends State<MangaDetailScreenBuilder> {
 
   @override
   Widget build(BuildContext context) {
-    print(mangaDetail);
-
     return FutureBuilder(
       future: mangaDetail,
       builder: (context, snapshot) {
         if (snapshot.hasError) {
-          return const Center(
-            child: Text("Error 404"),
+          return Center(
+            child: Text(snapshot.error.toString()),
           );
         } else {
           if (snapshot.hasData) {

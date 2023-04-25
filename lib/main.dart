@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'screens/add_manga.dart';
 import 'screens/screens_holder.dart';
 
 void main() {

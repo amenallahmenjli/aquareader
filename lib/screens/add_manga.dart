@@ -35,7 +35,7 @@ class AddManga extends StatelessWidget {
                             builder: (context) => MangaDetailScreenBuilder(
                                 link: controller.value.text)));
                   },
-                  child: Text('Go!'))
+                  child: const Text('Go!'))
             ],
           ),
         ),
