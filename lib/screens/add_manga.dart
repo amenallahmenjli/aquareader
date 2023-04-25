@@ -11,19 +11,32 @@ class AddManga extends StatelessWidget {
       body: Center(
         child: Padding(
           padding: const EdgeInsets.all(8.0),
-          child: TextField(
-            controller: controller,
-            decoration: const InputDecoration(
-              border: OutlineInputBorder(),
-              label: Text("Insert here the manga link:"),
-            ),
-            onSubmitted: (String value) async {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) =>
-                          MangaDetailScreenBuilder(link: value)));
-            },
+          child: Column(
+            children: [
+              TextField(
+                controller: controller,
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                  label: Text("Insert here the manga link:"),
+                ),
+                onSubmitted: (String value) async {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) =>
+                              MangaDetailScreenBuilder(link: value)));
+                },
+              ),
+              TextButton(
+                  onPressed: () async {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => MangaDetailScreenBuilder(
+                                link: controller.value.text)));
+                  },
+                  child: Text('Go!'))
+            ],
           ),
         ),
       ),
